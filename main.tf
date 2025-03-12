@@ -11,7 +11,7 @@ data "aws_ami" "debian_ami" {
   owners = ["136693071363"] # Debian
 }
 
-data "aws.vpc" "default" {
+data "aws_vpc" "default" {
   default = true
 } 
 resource "aws_instance" "freq" {  
@@ -33,7 +33,7 @@ resource "aws_security_group_rule" "freq_http_in" {
   from_port = 80
   to_port = 80
   protocol = "tcp"
-  cidr_block = [192.168.254.128/24]
+  cidr_block = ["192.168.254.128/24"]
 
-  security_group.id = aws_security_group.freq.id
+  security_group_id = aws_security_group.freq.id
 }
