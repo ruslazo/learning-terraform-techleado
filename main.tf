@@ -33,7 +33,7 @@ resource "aws_security_group_rule" "freq_http_in" {
   from_port = 80
   to_port = 80
   protocol = "tcp"
-  cidr_block = ["192.168.254.128/24"]
+  cidr_blocks = ["192.168.254.128/24"]
 
   security_group_id = aws_security_group.freq.id
 }
